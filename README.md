@@ -11,7 +11,7 @@ Ensure you have the following installed:
 
 * Install dependencies
 
-    bundle insltall
+    bundle install
     npm install
 
 * Set up database
@@ -19,7 +19,7 @@ Ensure you have the following installed:
     rails db:create
     rails db:migrate
 
-* Seed the database (optional)
+* Seed the database
 
     rails db:seed
 
