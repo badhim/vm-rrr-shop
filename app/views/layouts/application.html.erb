@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "VMRRR-Shop" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="<%= request.base_url + '/lib/animate/animate.min.css' %>" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="<%= request.base_url + '/css/style.css' %>" rel="stylesheet">
+  </head>
+
+  <body>
+    <%= render "layouts/shop-header" %>
+
+    <%= yield %>
+
+    <%= render "layouts/shop-footer" %>
+
+    <div class="toast-container position-fixed" style="bottom: 0; right: 60px; padding: 16px;">
+      <div id="toastEl" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex alert-warning align-items-center">
+          <div id="toastBody" class="toast-body"></div>
+          <a href="#" onclick="return false" class="close pr-3" data-bs-dismiss="toast" aria-label="Close">&times;</a>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+  <!-- JavaScript Libraries -->
+  <script src="/lib/jquery/jquery-3.4.1.min.js"></script>
+  <script src="/lib/bootstrap/bootstrap-5.0.0.bundle.min.js"></script>
+  <script src="/lib/easing/easing.min.js"></script>
+
+  <!-- Template Javascript -->
+  <script src="/js/main.js"></script>
+</html>

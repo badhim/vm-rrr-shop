@@ -1,0 +1,28 @@
+<div class="container-fluid py-3 w-100 inline-form">
+  <div class="container">
+    <div class="row">
+      <div class="w-100">
+        <div class="service-item bg-light p-4">
+          
+          <h2 class="pb-3">Resend unlock instructions</h2>
+
+          <%= render "devise/shared/error_messages", resource: resource, class: "alert mb-3" %>
+
+          <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-3 w-100" %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Resend unlock instructions", class: "btn btn-primary w-100 my-2" %>
+            </div>
+          <% end %>
+
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
